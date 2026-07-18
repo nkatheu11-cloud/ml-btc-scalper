@@ -220,3 +220,19 @@ python test_predict.py
      'BUY': 0.91
  }
 }
+
+**Improvement before live trading
+
+I recommend adding a confidence filter so the bot doesn't trade on weak predictions:**
+
+result = predictor.predict(df)
+
+if result["confidence"] < 0.75:
+    return None
+
+signal = result["signal"]
+
+if signal == "HOLD":
+    return None
+
+return signal
