@@ -204,3 +204,19 @@ Did you see an Accuracy: value printed?
 Did the file models/btc_model.pkl appear in the models folder?
 
 Did the output show a list of Top 10 Features?
+
+**Run**
+
+python test_predict.py
+
+**Example output**
+
+{
+ 'signal': 'BUY',
+ 'confidence': 0.91,
+ 'probabilities': {
+     'SELL': 0.04,
+     'HOLD': 0.05,
+     'BUY': 0.91
+ }
+}
