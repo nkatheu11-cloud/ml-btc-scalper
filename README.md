@@ -471,4 +471,6 @@ BTCUSD AI BOT
 │
 └── Optimizer
 
+**Telegram Control Bot**
 
+pip install python-telegram-bot
