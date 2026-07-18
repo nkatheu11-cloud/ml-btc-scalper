@@ -1,118 +1,88 @@
 """
 risk.py
 
-Risk Management Module
-
-Calculates:
-- Lot size
-- Stop Loss
-- Take Profit
-- Spread checks
-- Open position limits
+Professional risk management
 """
 
 import MetaTrader5 as mt5
 
-from config import (
-    SYMBOL,
-    RISK_PER_TRADE,
-    RISK_REWARD,
-    ATR_SL_MULTIPLIER,
-    MAX_SPREAD,
-    MAX_OPEN_TRADES,
-)
+from config import SYMBOL
 
 
-class RiskManager:
+RISK_PERCENT = 1
 
-    def __init__(self):
-        pass
 
-    def account_balance(self):
+ATR_MULTIPLIER_SL = 2
 
-        account = mt5.account_info()
+ATR_MULTIPLIER_TP = 4
 
-        if account is None:
-            raise Exception("Unable to read account information")
 
-        return account.balance
 
-    def current_spread(self):
+def calculate_lot_size():
 
-        tick = mt5.symbol_info_tick(SYMBOL)
+    account = mt5.account_info()
 
-        symbol = mt5.symbol_info(SYMBOL)
+    if account is None:
+        return 0.01
 
-        spread = (tick.ask - tick.bid) / symbol.point
 
-        return spread
+    balance = account.balance
 
-    def spread_ok(self):
 
-        return self.current_spread() <= MAX_SPREAD
+    risk_amount = (
+        balance *
+        RISK_PERCENT /
+        100
+    )
 
-    def open_positions(self):
 
-        positions = mt5.positions_get(symbol=SYMBOL)
+    # BTCUSD conservative size
 
-        if positions is None:
-            return 0
+    lot = risk_amount / 1000
 
-        return len(positions)
 
-    def can_trade(self):
+    if lot < 0.01:
+        lot = 0.01
 
-        return self.open_positions() < MAX_OPEN_TRADES
 
-    def stop_loss_take_profit(self, signal, price, atr):
+    return round(lot,2)
 
-        distance = atr * ATR_SL_MULTIPLIER
 
-        if signal == "BUY":
 
-            sl = price - distance
+def calculate_sl_tp(
+        price,
+        atr,
+        order_type
+):
 
-            tp = price + (distance * RISK_REWARD)
+    if order_type == mt5.ORDER_TYPE_BUY:
 
-        elif signal == "SELL":
 
-            sl = price + distance
+        stop_loss = (
+            price -
+            atr * ATR_MULTIPLIER_SL
+        )
 
-            tp = price - (distance * RISK_REWARD)
 
-        else:
+        take_profit = (
+            price +
+            atr * ATR_MULTIPLIER_TP
+        )
 
-            return None, None
 
-        return round(sl, 2), round(tp, 2)
+    else:
 
-    def lot_size(self, price, sl):
 
-        balance = self.account_balance()
+        stop_loss = (
+            price +
+            atr * ATR_MULTIPLIER_SL
+        )
 
-        risk_amount = balance * RISK_PER_TRADE
 
-        stop_distance = abs(price - sl)
+        take_profit = (
+            price -
+            atr * ATR_MULTIPLIER_TP
+        )
 
-        if stop_distance <= 0:
-            return 0.01
 
-        symbol = mt5.symbol_info(SYMBOL)
-
-        tick_value = symbol.trade_tick_value
-
-        tick_size = symbol.trade_tick_size
-
-        value_per_point = tick_value / tick_size
-
-        volume = risk_amount / (stop_distance * value_per_point)
-
-        volume = max(symbol.volume_min, volume)
-
-        volume = min(symbol.volume_max, volume)
-
-        step = symbol.volume_step
-
-        volume = round(volume / step) * step
-
-        return round(volume, 2)
+    return stop_loss, take_profit
