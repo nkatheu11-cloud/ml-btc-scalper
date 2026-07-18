@@ -289,3 +289,16 @@ return prediction
 where:
 
 prediction = 1
+
+**Run**
+
+Expected:
+
+INFO: Running strategy...
+INFO: AI signal: 1
+INFO: BUY signal detected
+INFO: Order successful
+
+or:
+
+INFO: Existing position detected. Skipping trade.
