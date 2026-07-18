@@ -19,7 +19,9 @@ from predict import predict_signal
 from execution import send_order
 from safety import safety_check
 from config import SYMBOL
-
+from advanced_risk import account_equity_check
+from exposure import exposure_allowed
+from loss_control import trading_allowed
 
 def check_existing_position():
     """
