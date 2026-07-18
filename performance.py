@@ -76,3 +76,36 @@ def generate_report(trades):
 
 
     print("===================")
+
+def max_drawdown(trades):
+
+    balance=0
+
+    peak=0
+
+    drawdown=0
+
+
+    for trade in trades:
+
+        balance += trade["profit"]
+
+
+        if balance > peak:
+
+            peak=balance
+
+
+        dd=peak-balance
+
+
+        if dd > drawdown:
+
+            drawdown=dd
+
+
+    return drawdown
+
+print(
+f"Max Drawdown: {max_drawdown(trades)}"
+)
