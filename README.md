@@ -343,4 +343,68 @@ Order successful: 123456789
 2026-07-18 22:41:12 INFO:
 Running strategy...
 
+**Test Safety Layer**
+**Run**, python main.py
 
+Expected:
+
+Normal:
+
+INFO: Running strategy...
+INFO: AI signal: 1
+INFO: BUY signal detected
+INFO: Order successful
+
+High spread:
+
+WARNING: Spread too high
+INFO: Safety check failed. No trade
+
+Too many positions:
+
+WARNING: Maximum open trades reached
+
+**Final Testing Checklist**
+
+**Before live trading:**
+
+1. Run on demo account
+
+Minimum:
+
+7 days
+
+Observe:
+
+Number of trades
+Win rate
+Drawdown
+Spread conditions
+
+**2. Verify MT5**
+
+**Check:**
+
+Tools
+ → Options
+ → Expert Advisors
+
+Enable:
+
+Allow algorithmic trading
+
+**3. Confirm model exists**
+
+Your folder:
+
+model.pkl
+
+must exist after:
+
+python train_model.py
+
+4. Run bot continuously
+
+Use:
+
+python main.py
