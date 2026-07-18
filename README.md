@@ -265,3 +265,27 @@ INFO: Order successful: xxxxxxxx
 or if your account blocks trading:
 
 Order failed: ...
+
+**Important check**
+
+Your predict.py must return:
+
+1
+
+for BUY
+
+-1
+
+for SELL
+
+0
+
+for HOLD
+
+Example:
+
+return prediction
+
+where:
+
+prediction = 1
