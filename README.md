@@ -68,3 +68,20 @@ ema_slow_slope,
 atr_ratio,
 volume_ma.
 volume_ratio.
+
+**Run**
+
+python test_feature_engineering.py
+
+You should see something similar to
+
+ema_fast
+ema_slow
+ema_distance
+...
+
+label
+
+ 0    610
+ 1    190
+-1    180
