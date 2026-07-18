@@ -408,3 +408,9 @@ python train_model.py
 Use:
 
 python main.py
+
+**Add Telegram Alerts**
+
+Install:
+
+pip install python-telegram-bot
