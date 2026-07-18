@@ -474,3 +474,30 @@ BTCUSD AI BOT
 **Telegram Control Bot**
 
 pip install python-telegram-bot
+
+**You receive**
+
+BTCUSD TRADE OPENED
+
+Direction:
+BUY
+
+Volume:
+0.05
+
+Price:
+67350
+
+**Windows Auto Start**
+
+**Create:**
+
+start_bot.bat
+
+**Add:**
+
+@echo off
+
+cd C:\Users\YOUR_USERNAME\Downloads\py mt5 btcusd bot\mt5_btcusd_bot.py
+
+python supervisor.py
