@@ -59,7 +59,13 @@ def run_strategy():
 
 
     # Get AI prediction
+    if not safety_check(SYMBOL):
 
+    logging.info(
+        "Safety check failed. No trade."
+    )
+
+    return
     signal = predict_signal()
 
 
