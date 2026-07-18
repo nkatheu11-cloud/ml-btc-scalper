@@ -316,3 +316,31 @@ Wait 60 seconds
 Repeat
 
 For BTCUSD M1 trading this is suitable.
+
+**Run the complete bot**, Run the complete bot
+
+**Powershell **
+
+Run the complete bot
+
+2026-07-18 22:40:10 INFO: Starting BTCUSD AI Trading Bot
+
+2026-07-18 22:40:11 INFO:
+MT5 connection successful
+
+2026-07-18 22:40:11 INFO:
+Running strategy...
+
+2026-07-18 22:40:11 INFO:
+AI signal: 1
+
+2026-07-18 22:40:12 INFO:
+BUY signal detected
+
+2026-07-18 22:40:12 INFO:
+Order successful: 123456789
+
+2026-07-18 22:41:12 INFO:
+Running strategy...
+
+
