@@ -67,8 +67,12 @@ def send_order(signal):
 
     lot = calculate_lot_size()
 
-
-    request = {
+   sl,tp = calculate_sl_tp(
+    price,
+    atr,
+    order_type
+) 
+   from risk import calculate_sl_tp
         "action": mt5.TRADE_ACTION_DEAL,
         "symbol": SYMBOL,
         "volume": lot,
