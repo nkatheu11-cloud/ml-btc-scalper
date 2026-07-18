@@ -179,3 +179,10 @@ momentum
 
 0.074
 
+**Verify the model file was created
+
+After training, check that this file exists:**
+
+models/btc_model.pkl
+
+This is the trained machine learning model that the live bot will use.
