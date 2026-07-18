@@ -127,3 +127,23 @@ def train():
 if __name__ == "__main__":
 
     train()
+FUTURE_BARS = 5
+df["future_price"] = (
+    df["close"]
+    .shift(-FUTURE_BARS)
+)
+
+
+df["target"] = 0
+
+
+df.loc[
+df.future_price > df.close*1.001,
+"target"
+]=1
+
+
+df.loc[
+df.future_price < df.close*0.999,
+"target"
+]=-1
