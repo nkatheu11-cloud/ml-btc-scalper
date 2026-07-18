@@ -17,7 +17,8 @@ from config import SYMBOL
 
 from predict import predict_signal
 from execution import send_order
-
+from safety import safety_check
+from config import SYMBOL
 
 
 def check_existing_position():
