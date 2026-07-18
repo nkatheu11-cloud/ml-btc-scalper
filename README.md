@@ -302,3 +302,17 @@ INFO: Order successful
 or:
 
 INFO: Existing position detected. Skipping trade.
+
+**Update config.py**
+Make sure you have:
+
+LOOP_TIME = 60
+
+This means:
+
+Check market
+Make decision
+Wait 60 seconds
+Repeat
+
+For BTCUSD M1 trading this is suitable.
