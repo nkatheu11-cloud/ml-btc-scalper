@@ -90,3 +90,22 @@ END_HOUR = 23
 # Logging
 
 TRADE_LOG_FILE = "trades.csv"
+
+# ==============================
+# PROFESSIONAL RISK SETTINGS
+# ==============================
+
+
+RISK_PER_TRADE = 1.0
+
+
+MAX_ACCOUNT_RISK = 5.0
+
+
+MAX_LOSS_STREAK = 3
+
+
+MAX_POSITION_VALUE = 5000
+
+
+EQUITY_STOP_PERCENT = 10
