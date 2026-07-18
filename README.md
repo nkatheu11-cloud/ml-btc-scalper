@@ -236,3 +236,19 @@ if signal == "HOLD":
     return None
 
 return signal
+
+**Run**
+python test_risk.py
+
+example output
+Balance: 1000.00
+
+Spread: 15.0
+
+Can Trade: True
+
+SL: 63980.25
+
+TP: 64460.25
+
+Lot: 0.02
