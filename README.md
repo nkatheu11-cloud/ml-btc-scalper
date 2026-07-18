@@ -40,7 +40,7 @@ python test_indicators.py
 
 **You should now see a DataFrame with columns similar to:**
 
-time
+time,
 open
 high
 low
