@@ -85,3 +85,97 @@ label
  0    610
  1    190
 -1    180
+
+**Run the training
+
+Open your terminal inside the project folder and run:
+
+Command
+**
+python train_model.py
+
+**What will happen**
+
+Connect to MT5.
+
+Download 50,000 one-minute BTCUSD candles.
+
+Calculate all indicators.
+
+Create BUY / SELL / HOLD labels.
+
+Train an XGBoost model.
+
+Evaluate the model.
+
+Save the model to models/btc_model.pkl.
+
+**Expected output**
+
+You should see something similar to:
+
+Accuracy: 0.61
+
+Classification Report:
+
+precision recall f1-score support
+
+0 0.58 0.55 0.56 2100
+
+1 0.65 0.70 0.67 4300
+
+2 0.59 0.54 0.56 2200
+
+**Top 10 Features:**
+
+feature
+
+	
+
+importance
+
+
+
+
+ema_distance
+
+	
+
+0.143
+
+
+
+
+macd_hist
+
+	
+
+0.112
+
+
+
+
+rsi
+
+	
+
+0.098
+
+
+
+
+atr_ratio
+
+	
+
+0.081
+
+
+
+
+momentum
+
+	
+
+0.074
+
