@@ -14,6 +14,7 @@ import MetaTrader5 as mt5
 from mt5_connector import connect_mt5
 from strategy import run_strategy
 from config import LOOP_TIME
+from trailing_stop import manage_trailing
 
 
 
@@ -60,7 +61,9 @@ def main():
 
         try:
 
-            run_strategy()
+           run_strategy()
+
+manage_trailing()
 
 
             logging.info(
