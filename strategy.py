@@ -68,6 +68,33 @@ def run_strategy():
     )
 
     return
+    if not account_equity_check():
+
+    logging.warning(
+        "Equity protection active"
+    )
+
+    return
+
+
+
+if not exposure_allowed():
+
+    logging.warning(
+        "Exposure limit reached"
+    )
+
+    return
+
+
+
+if not trading_allowed():
+
+    logging.warning(
+        "Loss streak protection active"
+    )
+
+    return
     signal = predict_signal()
 
 
