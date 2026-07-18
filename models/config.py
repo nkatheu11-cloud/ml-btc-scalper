@@ -67,3 +67,26 @@ LOG_LEVEL = "INFO"
 CHECK_INTERVAL = 5
 
 HISTORY_BARS = 500
+
+# ==============================
+# SAFETY SETTINGS
+# ==============================
+
+MAX_OPEN_TRADES = 1
+
+MAX_DAILY_LOSS = 50     # account currency
+
+MAX_SPREAD = 50         # points
+
+
+# Trading hours (server time)
+
+START_HOUR = 0
+
+END_HOUR = 23
+
+
+
+# Logging
+
+TRADE_LOG_FILE = "trades.csv"
