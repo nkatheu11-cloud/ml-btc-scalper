@@ -62,26 +62,23 @@ def train():
     y_train_xgb = y_train + 1
     y_test_xgb = y_test + 1
 
-    model = XGBClassifier(
+    model =XGBClassifier(
 
-        n_estimators=300,
+    n_estimators=500,
 
-        max_depth=6,
+    max_depth=6,
 
-        learning_rate=0.05,
+    learning_rate=0.03,
 
-        subsample=0.8,
+    subsample=0.8,
 
-        colsample_bytree=0.8,
+    colsample_bytree=0.8,
 
-        objective="multi:softmax",
+    objective="multi:softmax",
 
-        num_class=3,
+    num_class=3
 
-        eval_metric="mlogloss",
-
-        random_state=42
-    )
+)
 
     logger.info("Training model...")
 
