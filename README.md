@@ -186,3 +186,9 @@ After training, check that this file exists:**
 models/btc_model.pkl
 
 This is the trained machine learning model that the live bot will use.
+
+**Important**
+
+Make sure train_model.py finishes successfully and creates models/btc_model.pkl.
+
+Part 6 (predict.py) will load that file and use it to generate live BUY / SELL / HOLD predictions.
