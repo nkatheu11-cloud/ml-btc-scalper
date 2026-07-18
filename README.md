@@ -252,3 +252,16 @@ SL: 63980.25
 TP: 64460.25
 
 Lot: 0.02
+
+**Run**
+
+powershell 
+python test_execution.py
+
+Expected result:
+
+INFO: Order successful: xxxxxxxx
+
+or if your account blocks trading:
+
+Order failed: ...
