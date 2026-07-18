@@ -1,139 +1,126 @@
 """
 feature_engineering.py
 
-Creates ML features and labels from
-historical market data.
+Advanced BTCUSD AI features
 """
 
-import numpy as np
 import pandas as pd
-
-from sklearn.model_selection import train_test_split
-
-from config import (
-    BUY_THRESHOLD,
-    SELL_THRESHOLD,
-    LOOKAHEAD
-)
+import numpy as np
 
 
-class FeatureEngineering:
+def create_features(df):
 
-    @staticmethod
-    def create_labels(df):
 
-        df = df.copy()
+    data = df.copy()
 
-        # Future close price
-        df["future_close"] = (
-            df["close"]
-            .shift(-LOOKAHEAD)
-        )
 
-        # Future return
-        df["future_return"] = (
-            (df["future_close"] - df["close"])
-            / df["close"]
-        )
 
-        # BUY = 1
-        # HOLD = 0
-        # SELL = -1
+    # Returns
 
-        df["label"] = 0
+    data["returns"] = (
+        data["close"]
+        .pct_change()
+    )
 
-        df.loc[
-            df["future_return"] >= BUY_THRESHOLD,
-            "label"
-        ] = 1
 
-        df.loc[
-            df["future_return"] <= SELL_THRESHOLD,
-            "label"
-        ] = -1
 
-        df.dropna(inplace=True)
+    # Moving averages
 
-        return df
+    data["ma_fast"] = (
+        data["close"]
+        .rolling(10)
+        .mean()
+    )
 
-    @staticmethod
-    def get_features():
 
-        return [
+    data["ma_slow"] = (
+        data["close"]
+        .rolling(50)
+        .mean()
+    )
 
-            "ema_fast",
-            "ema_slow",
 
-            "ema_distance",
 
-            "ema_fast_slope",
-            "ema_slow_slope",
+    # RSI
 
-            "rsi",
+    delta = (
+        data["close"]
+        .diff()
+    )
 
-            "atr",
 
-            "atr_ratio",
+    gain = (
+        delta
+        .clip(lower=0)
+        .rolling(14)
+        .mean()
+    )
 
-            "macd",
 
-            "macd_signal",
+    loss = (
+        -delta
+        .clip(upper=0)
+        .rolling(14)
+        .mean()
+    )
 
-            "macd_hist",
 
-            "bb_width",
+    rs = gain / loss
 
-            "momentum",
 
-            "returns",
+    data["rsi"] = (
+        100 -
+        (100/(1+rs))
+    )
 
-            "body",
 
-            "range",
 
-            "upper_wick",
+    # Bollinger Bands
 
-            "lower_wick",
+    middle = (
+        data["close"]
+        .rolling(20)
+        .mean()
+    )
 
-            "tick_volume",
 
-            "volume_ratio"
+    std = (
+        data["close"]
+        .rolling(20)
+        .std()
+    )
 
-        ]
 
-    @staticmethod
-    def prepare_dataset(df):
+    data["bb_upper"] = (
+        middle +
+        2*std
+    )
 
-        df = FeatureEngineering.create_labels(df)
 
-        features = FeatureEngineering.get_features()
+    data["bb_lower"] = (
+        middle -
+        2*std
+    )
 
-        # keep only features that exist
-        features = [
-            f
-            for f in features
-            if f in df.columns
-        ]
 
-        X = df[features]
 
-        y = df["label"]
+    # Volatility
 
-        return X, y
+    data["volatility"] = (
+        data["returns"]
+        .rolling(20)
+        .std()
+    )
 
-    @staticmethod
-    def split(X, y):
 
-        return train_test_split(
 
-            X,
+    # Volume
 
-            y,
+    data["volume_change"] = (
+        data["tick_volume"]
+        .pct_change()
+    )
 
-            test_size=0.20,
 
-            random_state=42,
 
-            shuffle=False
-
-        )
+    return data.dropna()
