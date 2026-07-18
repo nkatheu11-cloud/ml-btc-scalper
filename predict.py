@@ -38,9 +38,29 @@ class Predictor:
         prediction = self.model.predict(X)[0]
 
         # Class probabilities
-        probabilities = self.model.predict_proba(X)[0]
+       probability = model.predict_proba(
+    features
+)
 
-        confidence = float(np.max(probabilities))
+
+confidence = max(
+    probability[0]
+)
+
+
+
+if confidence < 0.60:
+
+    return 0
+
+
+
+prediction = model.predict(
+    features
+)
+
+
+return prediction[0]
 
         # Convert XGBoost labels back
         # 0 -> SELL
