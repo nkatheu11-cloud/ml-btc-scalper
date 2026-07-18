@@ -13,6 +13,7 @@ import logging
 
 from config import SYMBOL
 from risk import calculate_lot_size
+from telegram_alert import send_alert
 
 
 def get_current_price(order_type):
@@ -177,3 +178,17 @@ def get_open_positions():
     )
 
     return positions
+    send_alert(
+f"""
+BTCUSD TRADE OPENED
+
+Direction:
+{signal}
+
+Volume:
+{lot}
+
+Price:
+{price}
+"""
+)
