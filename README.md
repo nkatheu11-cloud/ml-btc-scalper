@@ -414,3 +414,61 @@ python main.py
 Install:
 
 pip install python-telegram-bot
+
+**Testing Command
+
+Run:**
+
+python run_backtest.py
+
+Example output:
+
+===================
+BACKTEST REPORT
+===================
+
+Trades: 540
+
+Wins: 312
+
+Losses: 228
+
+Win Rate: 57.77%
+
+Profit: 1834.50
+
+Max Drawdown: 420
+
+===================
+
+**bot is now**
+
+LIVE TRADING SYSTEM
+
+        +
+        
+BACKTESTING SYSTEM
+
+        +
+
+OPTIMIZATION SYSTEM
+
+**Full structure:**
+
+BTCUSD AI BOT
+
+├── Live Trading
+│
+├── Risk Engine
+│
+├── Execution Engine
+│
+├── Trade Manager
+│
+├── Backtester
+│
+├── Performance Analyzer
+│
+└── Optimizer
+
+
