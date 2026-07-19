@@ -561,3 +561,19 @@ Base.metadata.create_all(
 **Run:**
 
 uvicorn api_server:app --reload
+
+**Open:**
+
+http://127.0.0.1:8000
+
+**You should see:**
+
+{
+"status":
+"BTCUSD AI BOT ONLINE"
+}
+
+
+http://127.0.0.1:8000
+
+http://127.0.0.1:8000
