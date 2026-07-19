@@ -556,3 +556,8 @@ from models import Base
 Base.metadata.create_all(
     engine
 )
+
+**Create Trading API**
+**Run:**
+
+uvicorn api_server:app --reload
