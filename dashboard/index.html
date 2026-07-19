@@ -1,0 +1,95 @@
+<html>
+
+<head>
+
+<title>
+BTCUSD AI Dashboard
+</title>
+
+</head>
+
+
+<body>
+
+
+<h1>
+BTCUSD AI Trading Center
+</h1>
+
+
+<h2>
+Account
+</h2>
+
+
+<div id="account"></div>
+
+
+<h2>
+AI Status
+</h2>
+
+
+<div id="ai"></div>
+
+
+
+<script>
+
+
+async function update(){
+
+
+let account =
+await fetch(
+"http://127.0.0.1:8000/account"
+)
+
+
+let data =
+await account.json()
+
+
+document.getElementById(
+"account"
+).innerHTML=
+
+JSON.stringify(data)
+
+
+
+let ai =
+await fetch(
+"http://127.0.0.1:8000/ai_status"
+)
+
+
+let aiData =
+await ai.json()
+
+
+
+document.getElementById(
+"ai"
+).innerHTML=
+
+JSON.stringify(aiData)
+
+
+
+}
+
+
+
+setInterval(
+update,
+5000
+)
+
+
+</script>
+
+
+</body>
+
+</html>
