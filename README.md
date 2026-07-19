@@ -499,5 +499,30 @@ start_bot.bat
 @echo off
 
 cd C:\Users\YOUR_USERNAME\Downloads\py mt5 btcusd bot\mt5_btcusd_bot.py
-
 python supervisor.py
+
+**Open:**
+
+Windows Task Scheduler
+
+**Create:**
+
+Task:
+BTCUSD AI BOT
+
+**Trigger**
+At startup
+
+**Action**
+start_bot.bat
+Now:
+
+Computer restarts
+
+        |
+
+Windows starts
+
+        |
+
+Bot starts automatically
