@@ -547,3 +547,12 @@ pip install stable-baselines3 gymnasium
 
 **Install Dashboard Requirements**
 pip install fastapi uvicorn sqlalchemy pandas
+
+**Create database:**
+from database import engine
+from models import Base
+
+
+Base.metadata.create_all(
+    engine
+)
