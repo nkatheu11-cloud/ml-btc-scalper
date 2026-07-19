@@ -594,3 +594,78 @@ AI:
 Signal BUY
 Confidence 82%
 Regime TRENDING
+
+RISK
+
+NORMAL
+
+Daily Loss:
+$12 / $50
+
+================================================
+
+          BTCUSD AI COMMAND CENTER
+
+================================================
+
+
+ACCOUNT
+
+Balance:
+$10,500
+
+Equity:
+$10,620
+
+
+------------------------------------------------
+
+
+AI ENGINE
+
+Signal:
+BUY
+
+Confidence:
+82%
+
+Market:
+TRENDING
+
+
+------------------------------------------------
+
+
+OPEN TRADES
+
+BTCUSD BUY
+
+Volume:
+0.05
+
+Profit:
++$85
+
+
+------------------------------------------------
+
+
+RISK
+
+Daily Loss:
+$12
+
+Status:
+SAFE
+
+
+------------------------------------------------
+
+
+CONTROLS
+
+[ START BOT ]
+
+[ STOP BOT ]
+
+================================================
