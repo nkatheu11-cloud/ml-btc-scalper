@@ -526,3 +526,19 @@ Windows starts
         |
 
 Bot starts automatically
+
+**AI sees:**
+
+Example:
+
+M1:
+Short-term movement
+
+M5:
+Momentum
+
+M15:
+Trend
+
+H1:
+Market direction
