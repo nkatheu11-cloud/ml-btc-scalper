@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from bot_control import *
 import MetaTrader5 as mt5
 
 
@@ -67,6 +68,25 @@ def positions():
                 p.profit
 
             })
+@app.post("/stop")
+def stop():
 
+    stop_bot()
+
+    return {
+        "message":
+        "Bot stopped"
+    }
+
+
+
+@app.post("/start")
+def start():
+
+    start_bot()
+
+    return {
+        "message":
+        "Bot started"
 
     return result
