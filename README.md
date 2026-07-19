@@ -542,3 +542,5 @@ Trend
 
 H1:
 Market direction
+
+pip install stable-baselines3 gymnasium
