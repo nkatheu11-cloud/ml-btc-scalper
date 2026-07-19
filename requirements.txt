@@ -1,0 +1,16 @@
+MetaTrader5
+pandas
+numpy
+scikit-learn
+xgboost
+joblib
+ta
+tensorflow
+fastapi
+uvicorn
+sqlalchemy
+python-telegram-bot
+plotly
+gymnasium
+stable-baselines3
+python-dotenv
