@@ -544,3 +544,6 @@ H1:
 Market direction
 
 pip install stable-baselines3 gymnasium
+
+**Install Dashboard Requirements**
+pip install fastapi uvicorn sqlalchemy pandas
