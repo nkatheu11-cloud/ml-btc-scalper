@@ -577,3 +577,20 @@ http://127.0.0.1:8000
 http://127.0.0.1:8000
 
 http://127.0.0.1:8000
+
+**Create Web Dashboard**
+
+dashboard/index.html
+
+BTCUSD AI Trading Center
+
+Account:
+Balance 10500
+Equity 10620
+Profit 120
+
+
+AI:
+Signal BUY
+Confidence 82%
+Regime TRENDING
